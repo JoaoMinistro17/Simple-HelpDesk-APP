@@ -1,0 +1,40 @@
+Relativamente à organização, tanto no backend como no frontend, houve alguns pontos que merecem atenção. 
+É sempre importante estruturar e organizar devidamente o código, independentemente do tamanho do projeto. 
+Por exemplo, no backend, adotar o padrão MVC é o mínimo obrigatório para o projeto ser compreensível e escalável, 
+não é correto concentrar tudo num único ficheiro pois dificulta a interpretação e a organização do código.
+
+No frontend, a estrutura inicial que o React gera ainda se mantém, 
+incluindo ficheiros desnecessários e bibliotecas não utilizadas, junto com o “StrictMode” no index.js. 
+Além disso, novamente, uma estrutura de pastas mais organizada é benéfica para o desenvolvimento e colaboração futura. 
+Seria assim importante ter uma estrutura melhorada, ter um layout base do site (mesmo que simplista), 
+e ter uma lógica de rotas publicas e privadas implementada, para não permitir navegar para uma página diretamente 
+sem passar pelo login antes. Por fim, transmitir informação entre componentes através do “navigate” não é uma boa prática, 
+sendo o standard recorrer a “global state” (useContext ou redux).
+
+No backend, o padrão REST devia ser mais rigorosamente seguido, 
+especialmente para a simplicidade da estrutura da base de dados. 
+Um exemplo de uma prática pouco correta adotada foi a rota “/api” 
+que retorna todos os dados de todas as tabelas. Além disso, questões de segurança mínimas, 
+como a autenticação por token e a encriptação das passwords, são aspetos essenciais que não foram implementados, 
+embora existam comentários no código a indicarem que estavas a tentar
+
+
+
+SQLite requires no installation and configuration.
+
+14/10 
+bug fixed - não dá para ir para uma página do site sem fazer login primeiro
+
+15/10 
+Limpar App.js retirar useEffect de lá que aparentemente nem estava a fazer nada
+Utilizar userController para lidar com a informação do user e perfil do user
+
+16/10
+bug - f5 desloga o user 
+não dá para remover os handlers do home.js para simplificar o código 
+
+17/10
+TODO- páginas homePage, createTicketPage, ProfilePage e definir o sistema de rotas respetivamente
+
+19/10 
+coloquei no github
