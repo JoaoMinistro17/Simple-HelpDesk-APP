@@ -1,2 +1,4 @@
-Fullstack react + express.js web app to manage tickets from departments.
-SQLite database
+Fullstack web app to manage tickets from departments.
+Back-end: Express.js
+Front-end: React
+DB: SQLite
