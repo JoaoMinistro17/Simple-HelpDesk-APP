@@ -5,7 +5,6 @@ const Container = styled.div`
   font-family: Arial, sans-serif;
   overflow-y: auto; /* Adiciona rolagem vertical se necessário */
   min-height: 100vh;
-
   background-color: #138496;
   background-image: linear-gradient(315deg, #138496 0%, #102a6e 74%);
 `;
@@ -22,10 +21,9 @@ const Header = styled.div`
 const Title = styled.h1`
   font-size: 2rem;
   color: white;
-  margin-bottom: 20px;
   position: absolute;
-  bottom: 72%;
-  left: 40px;
+  margin-left: 50px;
+  margin-top: 0px;
 `;
 
 const Subtitle = styled.h2`
@@ -90,7 +88,6 @@ const TicketList = styled.ul`
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 20px;
   list-style-type: none;
-  background-color: #f9f9f9;
   margin-left: 150px;
   margin-bottom 20px;
   margin-right: 150px;
@@ -98,9 +95,10 @@ const TicketList = styled.ul`
 `;
 
 const TicketItem = styled.div`
-  background: white;
+  background: 'transparent';
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   padding: 20px;
+  border-radius: 15px;
 `;
 
 const TicketTitle = styled.h3`
@@ -123,6 +121,7 @@ const TicketContainer = styled.div`
   background-color: #f9f9f9;
   max-width: 500px;
   margin: 20px auto;
+  margin-top: 200px;
 `;
 
 const TicketInput = styled.input`
@@ -231,12 +230,14 @@ const FilterLabel = styled.label`
 
 const SaveButton = styled.button`
   padding: 10px 20px;
+  font-size: 1rem;
+  color: white;
+  background-color: #007bff;
   border: none;
   border-radius: 5px;
-  background-color: #007bff;
-  color: white;
   cursor: pointer;
-  font-size: 16px;
+  text-align: center;
+  margin-top: 20px;
 
   &:hover {
     background-color: #0056b3;
@@ -251,6 +252,7 @@ const BackButton = styled.button`
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  text-align: center;
   margin-top: 20px;
 
   &:hover {

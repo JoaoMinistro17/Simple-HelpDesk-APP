@@ -123,7 +123,7 @@ app.put('/api/ticket', async (req, res) => {
 // Create a new ticket
 app.post('/api/tickets', async (req, res) => {
   try{
-    const { user_id, title, description, id_department, created_by, updated_by, id_state } = req.body;
+    const { title, description, id_department, created_by, updated_by, id_state } = req.body;
 
     const newTicket = await Ticket.create({ 
       title, 

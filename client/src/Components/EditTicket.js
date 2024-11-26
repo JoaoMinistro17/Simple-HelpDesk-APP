@@ -113,6 +113,7 @@ const EditTicket = () => {
         value={formData.title}
         onChange={handleInputChange}
         placeholder="Title"
+        readOnly
       />
       <TicketTextarea
         name="description"
@@ -120,6 +121,7 @@ const EditTicket = () => {
         onChange={handleInputChange}
         placeholder="Description"
         rows="5"
+        readOnly
       />
       <TicketInput
         type="text"
@@ -127,6 +129,7 @@ const EditTicket = () => {
         value={formData.id_department}
         onChange={handleInputChange}
         placeholder="Department ID"
+        readOnly
       />
       <TicketSelect
         name="id_state"

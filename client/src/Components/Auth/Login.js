@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import styled from 'styled-components';
@@ -67,9 +67,9 @@ function Login() {
       const response = await axios.post('/api/login', { email, password });
 
       if (response.data.success) {
-        setError('');
-        login(response.data.user); // Set the user data in the context
-        navigate('/home');
+        setError(''); // Clear any previous error messages
+        login(response.data.user);
+        navigate('/home'); // Redirect to the home page
       } else {
         setError('Invalid email or password');
       }

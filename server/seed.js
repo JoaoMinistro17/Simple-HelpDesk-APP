@@ -92,7 +92,7 @@ async function seedDatabase() {
                 description: 'Salary not credited.',
                 id_state: states[2].id, // Em tratamento
                 id_department: departments[1].id, // Finance
-                created_by: users[0].id,
+                created_by: users[1].id,
                 updated_by: null
             },
             {

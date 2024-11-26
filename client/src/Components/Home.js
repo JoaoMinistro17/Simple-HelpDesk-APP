@@ -72,7 +72,7 @@ const Home = () => {
         setUsers(usersRes.data);
         setDepartments(departmentsRes.data);
 
-        // Atualiza o estado do usuário com os dados obtidos
+        // Atualiza o estado do user com os dados obtidos
         if (location.state?.user) {
           const updatedUser = usersRes.data.find(u => u.id === location.state.user.id);
           login(updatedUser);
@@ -172,8 +172,8 @@ const Home = () => {
           </div>
         )}
       </Subtitle>
+  
     </Title>
-
     {/* Filtro */}
     <FilterContainer>
         <FilterInput 
@@ -204,13 +204,13 @@ const Home = () => {
           onClick={() => openPopup(ticket)}
           style={{ 
             color: 'white',
-            backgroundColor: hoveredTicket === ticket.id ? '#d0f0f5' : 'transparent',
+            backgroundColor: hoveredTicket === ticket.id ? '#d0f0f5' : 'white',
           }}
         >
           <TicketTitle>{ticket.title}</TicketTitle>
           <TicketDetails>Created on: {new Date(ticket.createdAt).toLocaleDateString()}</TicketDetails>
           <TicketDetails>Last updated: {new Date(ticket.updatedAt).toLocaleDateString()}</TicketDetails>
-          <TicketDetails>Department ID: {ticket.id_department} ({departmentTitle[ticket.id_department]}) </TicketDetails>
+          <TicketDetails>Department: {ticket.id_department} ({departmentTitle[ticket.id_department]}) </TicketDetails>
           <TicketDetails>State: {stateTitle[ticket.id_state]}</TicketDetails>
         </TicketItem>
       ))}

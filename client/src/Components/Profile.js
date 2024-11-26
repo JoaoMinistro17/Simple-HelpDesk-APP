@@ -8,6 +8,9 @@ const ProfileContainer = styled.div`
   flex-direction: column;
   align-items: center;
   padding: 20px;
+  min-height: 100vh;
+  background-color: #138496;
+  background-image: linear-gradient(315deg, #138496 0%, #102a6e 74%);
 `;
 
 const ProfileCard = styled.div`
@@ -16,8 +19,9 @@ const ProfileCard = styled.div`
   border-radius: 5px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   width: 100%;
-  max-width: 400px;
+  max-width: 500px;
   text-align: center;
+  margin-top: 200px;
 `;
 
 const ProfileTitle = styled.h2`
@@ -54,6 +58,7 @@ const EditButton = styled.button`
   border-radius: 5px;
   cursor: pointer;
   margin-top: 20px;
+  margin-right: 60px;
 
   &:hover {
     background-color: #0056b3;
@@ -216,10 +221,10 @@ const Profile = () => {
             <ProfileDetail><strong>Password:</strong> {profile.password}</ProfileDetail>
             <ProfileDetail><strong>Department ID:</strong> {profile.id_department}</ProfileDetail>
             <EditButton onClick={() => setIsEditing(true)}>Edit</EditButton>
+            <BackButton onClick={() => navigate(-1)}>Back</BackButton>
           </div>
         )}
       </ProfileCard>
-      <BackButton onClick={() => navigate(-1)}>Back</BackButton>
     </ProfileContainer>
   );
 };

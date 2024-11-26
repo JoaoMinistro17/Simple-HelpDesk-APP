@@ -16,7 +16,7 @@ from './StyledComponents';
 const CreateTicket = () => {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
-  const [department_id, setDepartmentId] = useState('');
+  const [id_department, setDepartmentId] = useState('');
   const [departments, setDepartments] = useState([]);
   const navigate = useNavigate();
   const location = useLocation();
@@ -29,11 +29,13 @@ const CreateTicket = () => {
       const response = await axios.post('/api/tickets', {
         title,
         description,
-        department_id,
+        id_department,
         created_by: user.id,
+        updated_by: null,
+        id_state: 1,
       });
       console.log('Ticket added:', response.data);
-      navigate('/'); // Redireciona para a página inicial após adicionar o ticket
+      navigate(-1); // Redireciona para a página anterior (Home)
     } catch (error) {
       console.error('Error adding ticket:', error);
     }
@@ -57,26 +59,27 @@ const CreateTicket = () => {
       <TicketContainer>
         <TicketTitle>Create Ticket</TicketTitle>
           <TicketInput
-          type="text"
-          placeholder="Title"
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
-          required
+            type="text"
+            placeholder="Title"
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
+            required
           />
           <TicketTextarea
-          placeholder="Description"
-          value={description}
-          onChange={(e) => setDescription(e.target.value)}
-          required
+            placeholder="Description"
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
+            required
           />
           <TicketSelect
-              name="id_state"
-              value={department_id}
+            name="id_department"
+            value={id_department}
+            onChange={(e) => setDepartmentId(e.target.value)}
           >
             {departments.map((department) => (
-            <option key={department.id} value={department.id}>
-                {department.title}
-            </option>
+              <option key={department.id} value={department.id}>
+                  {department.title}
+              </option>
             ))}
           </TicketSelect>
           <SaveButton onClick={handleSubmit}>Create Ticket</SaveButton>
