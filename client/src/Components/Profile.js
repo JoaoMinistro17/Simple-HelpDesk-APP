@@ -34,7 +34,6 @@ const ProfileDetail = styled.div`
   width: 100%;
   padding: 10px 0;
   border-bottom: 1px solid #ccc;
-
   &:last-child {
     border-bottom: none;
   }
@@ -119,10 +118,12 @@ const FormInput = styled.input`
 const Profile = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  const user = location.state?.user; // Recupera as informações do usuário
+  //Recupera as informações do user
+  const user = location.state?.user; 
   
   const [profile, setProfile] = useState(user || null);
   const [isEditing, setIsEditing] = useState(false);
+
   const [formData, setFormData] = useState({
     name: user?.name || '',
     email: user?.email || '',
@@ -133,7 +134,8 @@ const Profile = () => {
   useEffect(() => {
     const fetchProfile = async () => {
       try {
-        const response = await axios.get(`/api/profile?id=${user.id}`);
+        const response = await axios.get(`/user/${user.id}`);
+        console.log('Profile data fetched:', response.data);
         setProfile(response.data);
         setFormData({
           id: response.data.id,
@@ -161,13 +163,10 @@ const Profile = () => {
   };
 
   const handleSave = async () => {
-    try {
-      const response = await axios.put('/api/profile', formData);
-      setProfile(response.data);
-      setIsEditing(false);
-    } catch (error) {
-      console.error('Error updating profile:', error);
-    }
+    const response = await axios.put(`/user/${user.id}`, formData);
+    console.log('Profile updated:', response.data);
+    setProfile(response.data);
+    setIsEditing(false);
   };
 
   if (!profile) {

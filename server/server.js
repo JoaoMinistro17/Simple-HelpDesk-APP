@@ -47,26 +47,14 @@ app.post('/api/login', async (req, res) => {
     });
 });
 
-// get profile
-app.get('/api/profile', async (req, res) => {
-    const userId = req.query.id; 
-  
-    const user = await User.findByPk(userId);
-    if (!user) {
-      return res.status(404).json({ message: 'User not found' });
-    }
-  
-    res.json({
-      id: user.id,
-      name: user.name,
-      email: user.email,
-      password: user.password,
-      id_department: user.id_department,
-    });
-  });
+// get user
+app.get('/user/:id', userController.getUser);
 
-// Define the PUT route for updating user profile
-app.put('/api/profile', userController.updateUserProfile);
+// update user
+app.put('/user/:id', userController.updateUser);
+
+// return all users
+app.get('/user', userController.getAllUsers);
 
 // Return models from models/index.js
 app.get('/api', async (req, res) => {
@@ -138,17 +126,6 @@ app.post('/api/tickets', async (req, res) => {
   } catch (error) {
     console.error('Error creating ticket:', error);
     res.status(500).json({ message: 'Internal server error' });
-  }
-});
-
-//Return all users
-app.get('/api/users', async (req, res) => {
-  try {
-      const users = await User.findAll();
-      res.json(users);
-  } catch (error) {
-      console.error('Error fetching users:', error);
-      res.status(500).json({ message: 'Internal server error' });
   }
 });
 

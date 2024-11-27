@@ -64,7 +64,7 @@ const Home = () => {
         const [ticketsRes, statesRes, usersRes, departmentsRes] = await Promise.all([
           axios.get('/api/tickets'),
           axios.get('/api/states'),
-          axios.get('/api/users'),
+          axios.get('/user'),
           axios.get('/api/departments')
         ]);
         setTickets(ticketsRes.data);
@@ -159,7 +159,7 @@ const Home = () => {
     </Header>
 
     <Title>Hi, {user ? user.name : 'you are not logged in!'}
-      {/* Subtitle pode ser removido, mostra apenas todas as informações do user para facilitar os testes */}
+      {/* Subtitle pode ser removido, mostra apenas todas as informações do user para facilitar os testes
       <Subtitle>
         {user && (
           <div>
@@ -172,7 +172,7 @@ const Home = () => {
           </div>
         )}
       </Subtitle>
-  
+        */}
     </Title>
     {/* Filtro */}
     <FilterContainer>
@@ -208,10 +208,10 @@ const Home = () => {
           }}
         >
           <TicketTitle>{ticket.title}</TicketTitle>
-          <TicketDetails>Created on: {new Date(ticket.createdAt).toLocaleDateString()}</TicketDetails>
-          <TicketDetails>Last updated: {new Date(ticket.updatedAt).toLocaleDateString()}</TicketDetails>
-          <TicketDetails>Department: {ticket.id_department} ({departmentTitle[ticket.id_department]}) </TicketDetails>
-          <TicketDetails>State: {stateTitle[ticket.id_state]}</TicketDetails>
+          <TicketDetails><strong>Created in:</strong> {new Date(ticket.createdAt).toLocaleDateString()}</TicketDetails>
+          <TicketDetails><strong>Last update:</strong> {new Date(ticket.updatedAt).toLocaleDateString()}</TicketDetails>
+          <TicketDetails><strong>Department:</strong> {ticket.id_department} ({departmentTitle[ticket.id_department]}) </TicketDetails>
+          <TicketDetails><strong>State:</strong> {stateTitle[ticket.id_state]}</TicketDetails>
         </TicketItem>
       ))}
     </TicketList>

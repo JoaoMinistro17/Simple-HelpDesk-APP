@@ -1,7 +1,9 @@
 const { User } = require('../Models');
 
-exports.updateUserProfile = async (req, res) => {
-  const { id, name, email, password, id_department } = req.body;
+exports.updateUser = async (req, res) => {
+  const id = req.params.id;
+  const { name, email, password, id_department } = req.body;
+
   const user = await User.findByPk(id);
 
   if (!user) {
@@ -24,4 +26,20 @@ exports.updateUserProfile = async (req, res) => {
     password: user.password,
     id_department: user.id_department,
   });
+};
+
+exports.getAllUsers = async (req, res) => {
+  const users = await User.findAll();
+  res.json(users);
+};
+
+exports.getUser = async (req, res) => {
+  const id = req.params.id;
+  const user = await User.findByPk(id);
+
+  if (!user) {
+    return res.status(404).json({ message: 'User not found' });
+  }
+
+  res.json(user);
 };
