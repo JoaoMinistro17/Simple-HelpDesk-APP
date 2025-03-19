@@ -41,3 +41,5 @@ coloquei no github
 
 24/10
 TODO - separar tickets criados pelo user dos direcionados para o departamento que ele pertence
+
+teste teste
