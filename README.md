@@ -1,4 +1,9 @@
-Cool HelpDesk type app to assure proper problem communication between departments. The communication works via digital 'ticket'. 
-Back-end: Express.js
-Front-end: React
-DB: SQLite
+# Simple HelpDesk WEB APP
+
+HelpDesk App for problem communication between departments.
+
+## Technologies Used
+
+- **Back-end:** Express.js
+- **Front-end:** React
+- **Database:** SQLite

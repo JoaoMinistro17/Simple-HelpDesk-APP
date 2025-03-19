@@ -7,7 +7,6 @@ import {
   Container,
   Header,
   Title,
-  Subtitle,
   Button,
   TicketList,
   TicketItem,
